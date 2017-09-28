@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+@import './simditor-weixin';
+@import './fonticon';
+@import './editor';
+@import './nongshuoshu-body';
+
+.see {
+  display: none;
+  margin-left: 50px;
+  margin-top: 5px;
+  color: #9C9C9C;
+  cursor: pointer;
+  font-size: 14px;
+
+  .see-icon {
+    margin-right: 5px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    background: url('../../public/imgs/preview.png') no-repeat center center;
+    background-size: 14px;
+  }
+}
+.markdown {
+  display: none;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 1.6;
+  border: none;
+  padding: 10px 50px 10px;
+  min-height: 300px;
+  outline: none;
+  background: transparent;
+  resize: none;
+  height: auto;
+}
+.stuff {
+  height: 300px !important;
+}

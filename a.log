@@ -1,0 +1,25 @@
+
+1. Replace this.$delete(this.postId) with this[this.postId] = null
+  Line 57: src/components/module/DelDialog.vue
+  Reason: vm.$delete is now just an alias for Vue.delete and it is no longer possible to delete top-level reactive properties
+  More info: http://vuejs.org/guide/migration.html#vm-delete
+
+2. Replace init with beforeCreate
+  Line 50: src/components/module/Editor.vue
+  Reason: init lifecycle hook has been removed
+  More info: http://vuejs.org/guide/migration.html#init
+
+3. Refactor the computed property into a method
+  Line 70: src/components/module/UploadFile.vue
+  Reason: The cache option on computed properties has been deprecated, as it's better to simply use a method instead
+  More info: http://vuejs.org/guide/migration.html#cache-false
+
+4. Check Vue.directive('loader-js') to make sure its syntax has been updated and for anything beyond simple DOM manipulations, refactor to a component
+  Line 7: src/directives/loaderJs/README.md
+  Reason: Directives have been vastly reduced in scope and components are preferred in most use cases
+  More info: http://vuejs.org/guide/migration.html#Custom-Directives
+
+5. Rewrite your Vuex middlewares as plugins (see the link below for an example)
+  Line 36: src/vuex/store.js
+  Reason: Vuex middlewares have been replaced by a new plugin system
+  More info: http://vuejs.org/guide/migration-vuex.html#Middlewares

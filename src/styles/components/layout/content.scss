@@ -1,0 +1,15 @@
+.content {
+	overflow: auto;
+	width: 100%;
+	min-height: 100%;
+	padding: 35px 0;
+	background: #E6E6E6;
+
+	.main {
+		overflow: auto;
+		width: 1000px;
+		height: 100%;
+		margin: 0 auto;
+		background: #F9F9F9;
+	}
+}

@@ -1,0 +1,148 @@
+.comments-posts {
+  width: 100%;
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 40px;
+  border: 1px solid #E6E6E6;
+
+  ul.comments-posts-con {
+    overflow: auto;
+
+    > li {
+      border-bottom: 1px solid #E6E6E6;
+
+      &:first-child,
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &.loading-posts {
+        margin: 60px 0;
+        text-align: center;
+        border-bottom: none;
+        height: 65px;
+
+        .loading-txt {
+          text-align: center;
+          font-size: 14px;
+          color: #333;
+          margin-top: 20px;
+        }
+      }
+
+      &.empty-posts {
+        margin: 60px 0;
+        text-align: center;
+        width: 100%;
+        height: 65px;
+
+        > img {
+          width: 40px;
+          height: 41px;
+        }
+
+        .empty-txt {
+          text-align: center;
+          font-size: 12px;
+          color: #9C9C9C;
+          margin-top: 15px;
+        }
+      }
+
+      ul > li {
+        float: left;
+        padding-left: 20px;
+
+        &.comemnts-detail {
+          width: 315px;
+        }
+
+        &.post-title {
+          padding-left: 0;
+          width: 150px;
+          text-align: center;
+        }
+
+        &.comments-datetime {
+          width: 153px;
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+
+      ul.comments-posts-head {
+        height: 40px;
+        line-height: 40px;
+        background: #F9F9F9;
+        border-bottom: 1px solid #E6E6E6;
+      }
+
+      ul.comments-posts-item {
+        overflow: auto;
+        font-size: 12px;
+
+        .post-title, .comments-datetime, .comments-handle {
+          margin-top: 20px;
+        }
+
+        li {
+          padding: 20px 20px 18px 21px;
+          line-height: 16px;
+
+          a {
+            color: #333;
+            text-decoration: none;
+          }
+
+
+          &.comments-detail {
+
+            .avater-con {
+              display: inline-block;
+              width: 64px;
+              height: 64px;
+              text-align: center;
+              overflow: hidden;
+
+              .avater {
+                padding-top: 4px;
+                max-height: 64px;
+              }
+            }
+
+            .comment-detail-con {
+              display: inline-block;
+              width: 196px;
+              margin-left: 10px;
+              line-height: 64px;
+              vertical-align: top;
+
+              .post-status {
+                color: red;
+              }
+
+              .commenter {
+                margin-bottom: 8px;
+              }
+
+              .comment-content {
+                color: #333;
+                line-height: 18px;
+              }
+            }
+          }
+
+          .look {
+            display: block;
+            color: #1D598A;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='renderer' content='webkit'>
+    <title>写作平台</title>
+    <link rel="icon" type="image/png" href="//o4a7cbihz.qnssl.com/picture/b23784eb-f1e4-44ea-811b-af333e4978bc" sizes="32x32">
+    <style>
+      #loading-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 9999;
+      }
+      .start-container {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        left: 50%;
+        margin-top: -15px;
+        margin-left: -15px;
+        text-align: center;
+        animation: rotate 1.5s linear infinite;
+      }
+      .start-container img {
+        width: 100%;
+      }
+
+      @keyframes rotate {
+        0%{transform:rotate(0deg);}
+        100%{transform:rotate(360deg);}
+      }
+    </style>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    {% for (var css in o.htmlWebpackPlugin.files.css) { %}
+    <link href='{%=o.htmlWebpackPlugin.files.css[css] %}' rel='stylesheet'>{% } %}
+    <script type="text/javascript" src="https://dn-bughd-web.qbox.me/bughd.min.js" crossOrigin="anonymous"></script>
+    <script type="text/javascript">
+      window.bughd = window.bughd || function(){};
+      bughd("create",{key:"44a2684c790980ab50ebfc3d15d5db49"})
+    </script>
+  </head>
+  <body>
+    <div id="loading-container">
+      <div class="start-container">
+        <img src="//o4a7cbihz.qnssl.com/picture/849b186c-8f9c-43a6-9e26-ea78124fc6b5">
+      </div>
+    </div>
+    <div id='root'></div>
+    <div id='outdated'></div>  <!-- for globalSetting's checkBrowser-->
+    <script type="text/javascript" src="https://dn-bughd-web.qbox.me/bughd.min.js" crossOrigin="anonymous"></script>
+    <script src="//7xrnqf.dl1.z0.glb.clouddn.com/js/jquery.min.js"></script>
+    <script src="//7xrnqf.dl1.z0.glb.clouddn.com/js/bootstrap.min.js"></script>
+    {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+    <script src='{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}'></script>{% } %}
+    <script type="text/javascript">
+      if (window.location.port === "") {
+        window.bughd = window.bughd || function(){};
+        bughd("create",{key:"d58729b500e1f0ba547181a77776eb20"})
+      }
+    </script>
+  </body>
+</html>

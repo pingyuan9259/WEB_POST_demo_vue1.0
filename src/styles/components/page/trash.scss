@@ -1,0 +1,360 @@
+@import '../../base/common';
+
+.trash-con {
+  float: right;
+  width: 790px;
+  min-height: 693px;
+  background: #fff;
+
+  .trash-head {
+    width: 100%;
+    height: 61px;
+    border-bottom: 1px solid #E6E6E6;
+    padding-left: 50px;
+    position:relative;
+
+    .trash-tip {
+      display: inline-block;
+      margin-top: 34px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .change-list {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      width: 20px;
+      height: 20px;
+      background: url('../../public/imgs/switch-btn.png') no-repeat center center;
+      cursor: pointer;
+    }
+    .change-list.active {
+      background: url('../../public/imgs/switch-btn-act.png') no-repeat center center;
+    }
+  }
+
+  .trash-list {
+    padding: 0 50px;
+
+    .loading-posts {
+      text-align: center;
+      margin-top: 150px;
+      height: 101px;
+
+      .loading-txt {
+        text-align: center;
+        font-size: 14px;
+        color: #333;
+        margin-top: 20px;
+      }
+    }
+
+    .empty-posts {
+      text-align: center;
+      margin-top: 150px;
+
+      > img {
+        width: 64px;
+        height: 65px;
+      }
+
+      .empty-txt {
+        text-align: center;
+        font-size: 14px;
+        color: #9C9C9C;
+        margin-top: 20px;
+      }
+    }
+
+
+    .post-lists {
+      width: 100%;
+      margin: 30px auto;
+      color: #333;
+      font-size: 14px;
+
+      .list-con2 {
+        border: 1px solid #E6E6E6;
+        border-bottom: 0px solid #E6E6E6;
+
+        .post-lists-title {
+          width: 100%;
+          height: 40px;
+
+          > ul {
+            height: 40px;
+            background: #F9F9F9;
+            border-bottom: 1px solid #E6E6E6;
+            font-size: 0;
+
+            > li {
+              display: inline-block;
+              height: 40px;
+              font-size: 12px;
+              line-height: 40px;
+              text-align: center;
+            }
+
+            .post-cover {
+              width: 150px;
+            }
+
+            .post-title {
+              width: 140px;
+            }
+
+            .post-create-time {
+              width: 200px;
+            }
+
+            .post-handle {
+              width: 198px;
+            }
+          }
+        }
+
+        li {
+          height: 92px;
+          border-bottom: 1px solid #E6E6E6;
+          font-size: 0;
+
+          > a {
+            display: inline-block;
+            height: 100%;
+
+            > div {
+              display: inline-block;
+              vertical-align: top;
+              height: 100%;
+              font-size: 12px;
+              text-align: center;
+              margin-top: 20px;
+            }
+
+            .list-img {
+              position: relative;
+              width: 150px;
+              height: 54px;
+              overflow: hidden;
+
+              > img {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 66px;
+                -webkit-transform:translate(-50%, -50%);
+                transform:translate(-50%, -50%);
+              }
+            }
+
+            .list-title {
+              width: 140px;
+              color: #333;
+              height: 70px;
+              line-height: 50px;
+              @include ellipsis;
+            }
+          }
+
+          .list-datetime {
+            display: inline-block;
+            vertical-align: top;
+            width: 200px;
+            height: 100%;
+            font-size: 12px;
+            color: #7A7A7A;
+            margin-top: 30px;
+            text-align: center;
+            line-height: 18px;
+          }
+
+          .list-btns {
+            display: inline-block;
+            vertical-align: top;
+            width:198px;
+            height: 92px;
+
+            .btns-con {
+              width: 188px;
+              margin-top: 20px;
+              margin-left: 10px;
+              font-size: 0;
+
+              .btn {
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+                margin: 18px 10px;
+                line-height: 64px;
+                text-align: center;
+              }
+
+              .edit-btn {
+                background: url('../../public/imgs/edit.png') no-repeat center center;
+                background-size: 14px;
+              }
+              .preview-btn {
+                background: url('../../public/imgs/preview.png') no-repeat center center;
+                background-size: 14px;
+              }
+              .share-btn {
+                background: url('../../public/imgs/share.png') no-repeat center center;
+                background-size: 14px;
+              }
+              .delete-btn {
+                background: url('../../public/imgs/delete.png') no-repeat center center;
+                background-size: 14px;
+              }
+              .edit-btn:hover {
+                background: url('../../public/imgs/edit-act.png') no-repeat center center;
+                background-size: 14px;
+              }
+              .preview-btn:hover {
+                background: url('../../public/imgs/preview-act.png') no-repeat center center;
+                background-size: 14px;
+              }
+              .share-btn:hover {
+                background: url('../../public/imgs/share-act.png') no-repeat center center;
+                background-size: 14px;
+              }
+              .delete-btn:hover {
+                background: url('../../public/imgs/delete-act.png') no-repeat center center;
+                background-size: 14px;
+              }
+            }
+          }
+        }
+      }
+
+      .list-con {
+        overflow: auto;
+        overflow-x: hidden;
+        width: 690px;
+        min-height: 200px;
+        margin: 0 auto;
+        margin-top: 30px;
+
+        > li {
+          position: relative;
+          float: left;
+          width: 330px;
+          height: 330px;
+          padding: 22px 0px 0px;
+          margin-right: 30px;
+          margin-bottom: 15px;
+          border: 1px solid #E6E6E6;
+
+          &.right {
+            margin-right: 0;
+          }
+
+          &:hover {
+            border-color: #d8d8d8;
+          }
+
+          .list-content {
+            display: block;
+            width: 330px;
+            padding: 0 25px;
+            margin: 0 auto;
+            text-decoration: none;
+
+            .list-title {
+              text-align: center;
+              width: 282px;
+              font-size: 14px;
+              color: #333;
+              @include ellipsis;
+            }
+
+            .list-datetime {
+              text-align: center;
+              margin: 5px 0;
+              font-size: 12px;
+              color: #9C9C9C;
+            }
+
+            .list-img {
+              position: relative;
+              width: 280px;
+              height: 156px;
+              text-align: center;
+              overflow: hidden;
+
+              img {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform:translate(-50%, -50%);
+                transform:translate(-50%, -50%);
+                height: 156px !important;
+              }
+            }
+
+            .list-digest {
+              text-align: center;
+              width: 100%;
+              height: 32px;
+              font-size: 12px;
+              color: #6b6b76;
+              margin: 14px 0;
+              word-wrap: break-word;
+              @include multiple-line-ellipsis(2, 16px)
+            }
+          }
+          .list-btns {
+            position: absolute;
+            left: -1px;
+            bottom: -1px;
+            width: 330px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 12px;
+            border-top: 1px solid #E6E6E6;
+
+            .btns-con {
+              width: 300px;
+              height: 50px;
+              margin: 0 auto;
+
+              .btn {
+                float: left;
+                display: inline-block;
+                width: 75px;
+                height: 50px;
+                line-height: 64px;
+                text-align: center;
+              }
+
+              .edit-btn {
+                background: url('../../public/imgs/edit.png') no-repeat center center;
+              }
+              .preview-btn {
+                background: url('../../public/imgs/preview.png') no-repeat center center;
+              }
+              .share-btn {
+                background: url('../../public/imgs/share.png') no-repeat center center;
+              }
+              .delete-btn {
+                background: url('../../public/imgs/delete.png') no-repeat center center;
+              }
+              .edit-btn:hover {
+                background: url('../../public/imgs/edit-act.png') no-repeat center center;
+              }
+              .preview-btn:hover {
+                background: url('../../public/imgs/preview-act.png') no-repeat center center;
+              }
+              .share-btn:hover {
+                background: url('../../public/imgs/share-act.png') no-repeat center center;
+              }
+              .delete-btn:hover {
+                background: url('../../public/imgs/delete-act.png') no-repeat center center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

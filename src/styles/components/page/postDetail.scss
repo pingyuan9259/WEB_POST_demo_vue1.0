@@ -1,0 +1,61 @@
+@import '../../libs/simditor/simditor-body';
+
+.detail-con {
+  width: 740px;
+  margin: 0 auto;
+  padding-top: 30px;
+
+  .modal-header {
+    
+    .post-title {
+      color: #000;
+      font-size: 24px;
+      margin-bottom: 10px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e7e7eb;
+    }
+
+    span {
+      color: #797979;
+      font-size: 16px;
+
+      &.post-datetime {
+        vertical-align: -2px;
+      }
+
+      &.post-author {
+        margin-left: 10px;
+      }
+    }
+
+    .post-digest {
+      color: #2F2F2F;
+      font-weight: bold;
+      margin-top: 22px;
+      line-height: 20px;
+    }
+  }
+
+  .modal-body {
+    min-height: 300px;
+    padding-bottom: 15px;
+  }
+
+  .modal-footer {
+    font-size: 14px;
+    color: #333;
+    padding-top: 15px;
+    margin-bottom: 30px;
+    border-top: 1px solid #e7e7eb;
+
+    > span {
+      margin-right: 20px;
+    }
+
+    .num {
+      margin-left: 5px;
+      color: #9C9C9C;
+      vertical-align: -1px;
+    }
+  }
+}

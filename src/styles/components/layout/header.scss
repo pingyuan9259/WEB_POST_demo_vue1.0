@@ -1,0 +1,51 @@
+$headHeight: 60px;
+
+.header {
+	width: 1000px;
+	height: $headHeight;
+	line-height: $headHeight;
+	margin: 0 auto;
+
+	a {
+		text-decoration: none;
+	}
+
+	.not-verify {
+		font-size: 12px;
+		color: red;
+	}
+
+	img.logo {
+		height: 34px !important;
+		vertical-align: -8px;
+	}
+
+	.app-name {
+		margin-left: 4px;
+		color: #393D54;
+		font-size: 16px;
+		vertical-align: -2px;
+		font-family: "PingFangSC-Light","PingFang SC",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+	}
+
+	.right-con {
+		float: right;
+		font-size: 14px;
+		height: $headHeight;
+		line-height: $headHeight;
+
+		a {
+			color: #333;
+		}
+
+		img.avater {
+			width: 40px;
+			height: 40px;
+			vertical-align: middle;
+		}
+
+		.user-name {
+			margin-left: 12px;
+		}
+	}
+}

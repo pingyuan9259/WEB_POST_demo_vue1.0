@@ -1,0 +1,63 @@
+  .confirm-dialog {
+    position: absolute;
+    // bottom: 10px;
+    width: 290px;
+    height: 135px;
+    background: #fff;
+    border: 1px solid #E6E6E6;
+
+    i.arrow {
+      position: absolute;
+      top: 0;
+      left: 54%;
+      margin-left: -11px;
+      margin-top: -10px;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-width: 10px;
+      border-style: dashed;
+      border-color: transparent;
+      border-top-width: 0;
+      border-bottom-color: #d9dadc;
+      border-bottom-style: solid;
+    }
+
+    i.arrow-out {
+      border-bottom-color: #fff;
+      top: 1px;
+    }
+
+    .confirm-body {
+      margin: 30px 0 0 30px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .confirm-btns {
+      margin-top: 25px;
+      margin-left: 30px;
+
+      > a {
+        display: inline-block;
+        width: 108px;
+        height: 34px;
+        line-height: 34px;
+        font-size: 12px;
+        color: #333;
+        text-align: center;
+        background: #fff;
+        border: 1px solid #E6E6E6;
+        text-decoration: none;
+        border-radius: 2px;
+
+        &:first-child {
+          margin-right: 4px;
+        }
+        &:last-child {
+          color: #fff;
+          background: #04bab1;
+        }
+      }
+    }
+  }

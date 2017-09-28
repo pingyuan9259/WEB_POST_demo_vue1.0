@@ -1,0 +1,47 @@
+import Vue from 'vue'
+import App from './app'
+import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
+import { configRouter } from './router/configRouter'
+import lazyload from 'vue-lazyload'
+import filter from './filters/index'
+
+/* eslint-disable no-new */
+let openDebug = location.hash.indexOf('debug') !== -1
+Vue.config.silent = !openDebug
+Vue.config.debug = openDebug
+
+// install router
+Vue.use(VueRouter)
+
+// install request
+Vue.use(VueResource)
+
+// register directives
+let imgPrefix = '//7xnjim.com1.z0.glb.clouddn.com/article/'
+Vue.use(lazyload, {
+  error: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAACcCAYAAACk2LT2AAAAAXNSR0IArs4c6QAACY9JREFUeAHt3QlPFEsXBuACxV1cI4qRaEyI0cT//z9M3BBcYlwigqIiIur31dzbhHAlw5mZgu6apxPSLKdrqp4qX6dn6ZlYWVn5k2wECBAoIDBZoE1NEiBAoCcgYCwEAgSKCQiYYrQaJkBAwFgDBAgUExAwxWg1TICAgLEGCBAoJiBgitFqmAABAWMNECBQTEDAFKPVMAECAsYaIECgmICAKUarYQIEBIw1QIBAMQEBU4xWwwQICBhrgACBYgICphithgkQEDDWAAECxQQETDFaDRMgIGCsAQIEigkImGK0GiZAQMBYAwQIFBMQMMVoNUyAgICxBggQKCYgYIrRapgAAQFjDRAgUExAwBSj1TABAgLGGiBAoJiAgClGq2ECBASMNUCAQDEBAVOMVsMECAgYa4AAgWICAqYYrYYJEBAw1gABAsUEBEwxWg0TICBgrAECBIoJCJhitBomQEDAWAMECBQTEDDFaDVMgICAsQYIECgmIGCK0WqYAAEBYw0QIFBMQMAUo9UwAQICxhogQKCYgIApRqthAgQEjDVAgEAxAQFTjFbDBAgIGGuAAIFiAgKmGK2GCRAQMNYAAQLFBARMMVoNEyBwFEF3BH7+/JlWVlbS6upq2tjYSPnnX79+dWcAA/T0yJEjaWpqKh0/fjxdvHix95V/tnVDYOL/C/ZPN7o63r188+ZNev36dfr9+/dYQ0xMTKQbN26k2dnZsXboyuCdInVgpt6/f59evXo19uGSp+rPnz89i2xia7+AU6T2z1F6+/btf3qZ/xefnp7+z+9r/cXk5GRaXl7etsgmMzMztQ63mnEJmA5MZX68Zed26dKldP369Z2/Govv19bWtse522T7D75plYBTpFZNR//O5Mcg5ubm+heqINACAQHTgkmIdOHChQu9Z1Qix6glcFgCAuaw5Ae83RMnTgx4pMMIHLyAgDl4c7dIYGwEBMzYTLWBEjh4AQFz8OZukcDYCHiautKpzm8h+PTpU1pfX09bW1u9l9vn182M02tnKp3aTg1LwHRquvbX2Rwsi4uLvfcq7T7izJkz6fbt2+nkyZO7/+RnAiMXcIo0ctLDbTC/peDx48d/DZfcs69fv6YHDx703jR5uD116+MgIGAqmuV8zyW/KbLflt8wme/hbG5u9iv1dwJDCQiYofjac3B+zGVpaWnfHcr1L1682He9QgKDCAiYQdRaeMznz5/D90jytWXyA8A2AqUEBEwp2QNu99u3bwPdYn6WadRbc0mF2i+GNWq3GtsTMJXM6qD3RAY9bi+2HC5Pnz7tPRb06NGj6q+4t5eD3/8jIGAqWQlHjw72ioNRXn4yP3icwyVf0jNv+RkrIVPJAhtwGAJmQLi2HXb27Nlwl/L1bk+fPh0+7m8H5HBZWFjYDpemRsg0EuO5FzCVzPu5c+fSqVOnQqO5evVqyleKG3bbK1yadnPIPHz40OlSAzJG++FX1xhhtXmo+UJU+RW6eb+fLb+SdxRXxdt9WrTXbecHoYXMXjr1/l7AVDS3+XTn1q1bfe+V5GvKzM/P963rR9OES36B3342IbMfpbpqBExd85muXLmS7t+/n/72mEy+d5NPi/Lfh30vUjRcGmYh00iMx36wpx7Gw6azo8z3UO7du5d+/PiR8j/one+mzg/sDrsNGi7N7TYhc/fu3TSK/jTt2rdPQMC0b05G1qP8aYj5a5TbsOHS9EXINBJ1750i1T2/Ix3dqMKl6VQTMl7x24jUtxcw9c1pkRGNOlyaTgqZRqLOvYCpc15HOqpS4dJ0Usg0EvXtBUx9c9p3RPlznV++fNm3LhfkcHny5Env8pv7OmDAIiEzIFzLDxMwLZ+gUXcvh8vz5897n/HcL2SacMmXgjiITcgchPLB3oaAOVjvQ721JlyaTuQPkN8rZA46XJo+5ZB59uxZ86N9xwUETMcncL/d3x0uzXF/C5nDCpemT55VaiS6vxcw3Z/DviPYK1yaA3PIvPj38pmHHS5Nn+zrEPBCuzrmcc9R9AuX5sB3796lfLGo79+/p7W1tebX9gSGEhAwQ/G1++D9hkszilxvIzBKAadIo9RsUVvRcGlR13WlIgEBU9FkNkMRLo2E/WELCJjDnoER375wGTGo5oYSEDBD8bXrYOHSrvnQm5QETCWr4MOHD71X6FYyHMOoREDAVDKRnlquZCIrG4aAqWxCDYdAmwQETJtmQ18IVCYgYCqbUMMh0CYBAdOm2dAXApUJCJjKJtRwCLRJwHuR2jQbQ/Qlf87R9PT0EC2059C9PrMpvxnT1i0BAdOB+Tp27Fja3Nzs9fTjx4+9j3zd/XlCs7OzKX/VuuXLSCwvL28Pb2pqavt737RXwClSe+dmu2f5g+2bLX+Y2sLCQvPj2OwXFxfT+vr69nhrube2PaBKvxEwHZjY/HGvO7f8WdA5ZMbllGFpaSnle247t90mO//m+/YIOEVqz1zs2ZP8ofbXrl3rXai7Kcr/4PJp0857N83fatrnVyjvfpVy/vztv332dk3jrmUsAqYjMzk3N5c2NjbS6urqdo+/fPmS8tc4bfnU6ObNm+M05E6P1SlSR6ZvYmIizc/Pp5mZmY70ePTdvHz5crpz506anLRsR69bpsWJlZUVz/2VsS3Waj5lyBfqzvdetra2it1OGxrOz5bl06H8mMv58+fb0CV9CAgImACWUgIEYgLua8a8VBMgEBAQMAEspQQIxAQETMxLNQECAQEBE8BSSoBATEDAxLxUEyAQEBAwASylBAjEBARMzEs1AQIBAQETwFJKgEBMQMDEvFQTIBAQEDABLKUECMQEBEzMSzUBAgEBARPAUkqAQExAwMS8VBMgEBAQMAEspQQIxAQETMxLNQECAQEBE8BSSoBATEDAxLxUEyAQEBAwASylBAjEBARMzEs1AQIBAQETwFJKgEBMQMDEvFQTIBAQEDABLKUECMQEBEzMSzUBAgEBARPAUkqAQExAwMS8VBMgEBAQMAEspQQIxAQETMxLNQECAQEBE8BSSoBATEDAxLxUEyAQEBAwASylBAjEBARMzEs1AQIBAQETwFJKgEBMQMDEvFQTIBAQEDABLKUECMQEBEzMSzUBAgEBARPAUkqAQExAwMS8VBMgEBAQMAEspQQIxAQETMxLNQECAQEBE8BSSoBATEDAxLxUEyAQEBAwASylBAjEBARMzEs1AQIBAQETwFJKgEBMQMDEvFQTIBAQEDABLKUECMQEBEzMSzUBAgEBARPAUkqAQExAwMS8VBMgEBD4HxOTesENWWwuAAAAAElFTkSuQmCC',
+  loading: imgPrefix + '4d7ae8ea-8e54-43ee-a8a1-ebd301acc77c'
+})
+
+// register filter
+filter()
+
+// create router, see http://vuejs.github.io/vue-router/zh-cn/options.html
+const router = new VueRouter({
+  history: true,
+  linkActiveClass: 'active',
+  saveScrollPosition: true,
+  suppressTransitionError: true
+})
+
+// set router map
+configRouter(router)
+
+// boostrap the app
+router.start(App, '#root')
+
+// just for debugging
+if (openDebug) {
+  window.router = router
+}
